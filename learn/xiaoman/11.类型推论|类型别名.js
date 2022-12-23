@@ -1,0 +1,10 @@
+let str = '123';
+str = '456';
+let n = null;
+n = 12;
+console.log(n);
+let a;
+a = [];
+let str1 = 12;
+const fn = () => '1212';
+let str2 = 5;
