@@ -28,7 +28,7 @@ interface List {
     [key:string]: Array<Function>
 }
 
-class Dispatch implements Events {
+export class Dispatch implements Events {
     list:List
     constructor() {
         this.list = {}
@@ -104,9 +104,11 @@ const proxy = (object: any, key:any)=>{
     })
 }
 
-const logAccess = (object:Person, key: keyof Person):Person => {
+export const logAccess = (object:Person, key: keyof Person):Person => {
     return proxy(object, key)
 }
+
+
 
 // let man:Person = logAccess({
 //     name: '小满',

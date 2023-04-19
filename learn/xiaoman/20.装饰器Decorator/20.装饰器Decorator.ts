@@ -1,7 +1,8 @@
-const watcher:ClassDecorator = (target:Function)=>{
-    target.prototype.getName = <T>(name:T):T=>{
-        return name
-    }
+const watcher:ClassDecorator = (...arg)=>{
+    console.log(12, arg)
+    // target.prototype.getName = <T>(name:T):T=>{
+    //     return name
+    // }
 }
 
 const watcher2 = (name:string):ClassDecorator => {
@@ -37,18 +38,25 @@ const log4:ParameterDecorator = (...args) =>{
 @watcher2("xiao")
 class A {
     @log2
+    static names: string = 'li'
+    @log2
     name:string
+    @log2
+    age:number
     constructor() {
     }
     @log3
-    getAge(name:string, @log4 age:number) {
+    getAge(@log4 name:string, @log4 age:number) {
+        return this.age
+    }
+    getAge2() {
         return this.name
     }
 }
 
-let a = new A()
+// let a = new A()
 
-console.log((<any>a).getName('1122'))
-console.log((<any>a).getNames())
-console.log((<any>a).a)
+// console.log((<any>a).getName('1122'))
+// console.log((<any>a).getNames())
+// console.log((<any>a).a)
 
